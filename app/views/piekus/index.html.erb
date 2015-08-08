@@ -1,4 +1,47 @@
-<h1>Piekus!</h1>
+  
+<% if current_user.nil? %>
+  <!-- Header -->
+  <header id="top" class="header">
+    <div class="text-vertical-center">
+      <h1 style="margin-top: 60px">PIEKU</h1>
+      <h3>FOR THE LOVE OF POETRY AND PIE.</h3>
+      <br>
+      <a class="btn btn-dark btn-lg" href="#" role="button" data-toggle="modal" data-target="#login-modal">Log in!</a>
+      <p>New user?<a data-toggle="modal" data-target="#signup-modal" href="/signup">Sign up here.</a></p>
+    </div>
+  </header>
+  <!-- header end -->
+
+  <!-- Description section -->
+  <div class="description-row text-center" id="about">
+    <div class="container-fluid">
+      <div class="col-md-2"></div>
+      <div class="col-md-2">
+        <div id="haikuImg"></div>
+        <h4>HAIKU</h4>
+        <p>A Japanese poem of seventeen syllables, in three lines of five, seven, and five.</p>
+      </div>
+      <div class="col-md-1">
+        <p class="symbol">+</p>
+      </div>
+      <div class="col-md-2">
+        <div id="pieImg"></div>
+        <h4>Pie</h4>
+        <p>A baked dish of fruit, or meat and vegetables, typically with a top and base of pastry.</p>
+      </div>
+      <div class="col-md-1">
+        <p class="symbol">=</p>
+      </div>
+      <div class="col-md-2">
+        <div id="piekuImg"></div>
+        <h4>Pieku</h4>
+        <p>A pastry poem of seventeen syllables, in three lines of five, seven, and five.</p>     
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+  <!-- Description section end -->
+<% end %>
 <hr>
 <% @piekus.each do |pieku| %>
   <p><%= pieku.title %></p>
@@ -14,3 +57,4 @@
 	<% end %>
 	<hr>
 <% end %>
+

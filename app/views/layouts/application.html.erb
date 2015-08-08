@@ -1,45 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pieku</title>
   <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="pieku icon" href="/pieku-icon-sm.png">
+  <title>Pieku</title>
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Pieku</a>
-    </div>
+  <nav class="navbar navbar-fixed-top navbar-inverse" id="topNavbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"></a>
+      </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="/">All Piekus</a></li>
-        <li><a href="/piekus/new">Create a new Pieku</a></li>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="/">All Piekus</a></li>
+          <% if current_user %>
+            <li><a href="/piekus/new">Create a new Pieku</a></li>
+          <% end %>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+          	<li><a href="/profile">My Piekus</a></li>
+          	<li><a href="/logout">Logout</a></li>
+          <% else %>
+          	<li><a data-toggle="modal" data-target="#signup-modal" href="/signup">Sign Up</a></li>
+          	<li><a data-toggle="modal" data-target="#login-modal" href="/login">Login</a></li>
+          <% end %>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% if current_user %>
-        	<li><a href="/profile">My Piekus</a></li>
-        	<li><a href="/logout">Logout</a></li>
-        <% else %>
-        	<li><a href="/signup">Sign Up</a></li>
-        	<li><a href="/login">Login</a></li>
-        <% end %>
-    </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>	
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
-<%= yield %>
+  <%= yield %>
 
+  <!-- modal sign up -->
+  <%= render 'users/new' %>
+
+  <!-- modal login -->
+  <%= render 'sessions/login' %>
+
+  <!--jQuery-->
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>
