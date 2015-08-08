@@ -1,0 +1,32 @@
+Pieku!
+
+Pieku is a fun haiku app dedicated towards the love of pastries and pie.  Create your own pieku and share it to the world!
+
+Steps for setting up this app:
+
+1. rails new pieku-rails -T -d postgresql
+2. cd into app
+3. rake db:create
+4. set up routes
+5. rake routes to check routes
+6. rails g controller users new create show
+7. Check users controller
+8. rails s to check local host:3000 is connected
+9. Add piekus to routes.rb
+10. rails g model User and Pieku
+11. Open User and Pieku model, add relationships to each
+12. Check migration files for each
+13. In Pieku migration file, add t.belongs_to :user
+14. Add secure password to user model
+15. Uncomment bcrypt in gemfile.
+16. bundle in terminal.  restart rails s
+17. add data in db for user and pieku
+18. set up Users controller and new view for signup
+19. Add create and show to user controller
+20. Create the show for user profile
+21. rails g controller sessions new create destroy
+22. set up sessions controller and new view for login
+23. refactor code for current_user
+24. rails g controller pieuks index new create show edit update destroy
+25. Add index to pieku controller and view
+26. Work on rest of controller and views for pieku

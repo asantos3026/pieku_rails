@@ -1,0 +1,16 @@
+<h1>Piekus!</h1>
+<hr>
+<% @piekus.each do |pieku| %>
+  <p><%= pieku.title %></p>
+  <p><%= full_name(pieku) %></p>
+  <p><%= pieku.line_1 %></p>
+  <p><%= pieku.line_2 %></p>
+  <p><%= pieku.line_3 %></p>
+  <p><%= link_to "View Pieku", pieku_path(pieku) %></p>
+
+  <% if current_user == pieku.user %>
+	  <p><%= link_to "Delete", pieku, method: :delete %></p>
+	  <p><%= link_to "Edit", edit_pieku_path(pieku) %></p>
+	<% end %>
+	<hr>
+<% end %>

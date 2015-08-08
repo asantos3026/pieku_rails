@@ -1,0 +1,13 @@
+<h1><%= @pieku.title %></h1>
+<hr>
+<p><%= @pieku.line_1 %></p>
+<hr>
+<p><%= @pieku.line_2 %></p>
+<hr>
+<p><%= @pieku.line_3 %></p>
+<p><%= link_to "Show All", root_path %>
+
+<% if current_user && current_user.piekus.include?(@pieku) %>
+  <p><%= link_to "Edit Pieku", edit_pieku_path(@pieku) %></p>
+  <p><%= link_to "Delete", @pieku, method: :delete %></p>
+<% end %>
