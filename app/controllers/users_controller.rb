@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   # show current_user
   def show
+    @piekus = Pieku.all
     render :show
   end
 

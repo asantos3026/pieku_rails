@@ -37,24 +37,16 @@
         <h4>Pieku</h4>
         <p>A pastry poem of seventeen syllables, in three lines of five, seven, and five.</p>     
       </div>
-      <div class="col-md-2"></div>
     </div>
   </div>
-  <!-- Description section end -->
 <% end %>
-<hr>
-<% @piekus.each do |pieku| %>
-  <p><%= pieku.title %></p>
-  <p><%= full_name(pieku) %></p>
-  <p><%= pieku.line_1 %></p>
-  <p><%= pieku.line_2 %></p>
-  <p><%= pieku.line_3 %></p>
-  <p><%= link_to "View Pieku", pieku_path(pieku) %></p>
+<!-- Description section end -->
 
-  <% if current_user == pieku.user %>
-	  <p><%= link_to "Delete", pieku, method: :delete %></p>
-	  <p><%= link_to "Edit", edit_pieku_path(pieku) %></p>
-	<% end %>
-	<hr>
-<% end %>
-
+<div class="col-md-12 text-center">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <!-- pieku post -->
+    <%= render 'piekus/post' %>
+  </div>
+  <div class="col-md-3"></div>
+</div>

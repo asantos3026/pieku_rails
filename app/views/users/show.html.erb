@@ -1,22 +1,15 @@
-<h1>Profile Page</h1>
-<div>
-  <p><%= current_user.first_name %></p>
-  <p><%= current_user.last_name %></p>
-  <p><%= current_user.email %></p>
-</div>
-
 <% if current_user.piekus.any? %>
+<div class="col-md-12 text-center">
+  <h1>Welcome <%= current_user.full_name %></h1>
   <h3>My Piekus</h3>
-  <% current_user.piekus.each do |pieku| %>
-    <p><%= pieku.title %></p>
-    <p><%= pieku.line_1 %></p>
-    <p><%= pieku.line_2 %></p>
-    <p><%= pieku.line_3 %></p>
-    <p><%= link_to "Delete", pieku, method: :delete %></p>
-    <p><%= link_to "Edit", edit_pieku_path(pieku), class: "title_link" %></p>
-  <% end %>
-<% else %>
-  <h4>You haven't created any delicious Piekus yet!</h4>
-<% end %>
-<hr>
+  <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <!-- pieku post -->
+      <%= render 'piekus/post' %>
+      <% else %>
+        <h4>You haven't created any delicious Piekus yet!</h4>
+      <% end %>
+    </div>
+  <div class="col-md-3"></div>
+</div>
 <%= link_to "Add New Pieku", new_pieku_path %>

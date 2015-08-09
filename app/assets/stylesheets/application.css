@@ -205,52 +205,20 @@ p.symbol {
 }
 
 /*pieku list layout section*/
-.space {
-	margin-top: 130px;
-}
-.pieku {
-	background-color: rgba(255, 255, 255, 0.7);
+.pieku{
+	background-color: rgba(255, 255, 255, 0.8);
+	margin-top: 20px;
 	margin-bottom: 20px;
-	font-size: 1.3em;
+	padding-top: 20px;	
+	padding-bottom: 20px;
 }
-.comment {
-	background-color: rgba(255, 255, 255, 0.7);
-	height: 245px;
+.delete-post {
+	float: left;
+	padding-left: 20px;
 }
-.comment-feature {
-	height: 245px;
-	background-color: rgba(255, 255, 255, 0.7);
-	background-image: none;	
-}
-.panel-heading {
-	padding-left: 0px;
-	padding-right: 0px;
-}
-.piekuListImg {
-	background: url(/pieku-icon.png) no-repeat;
-	border: 0;
-	display: block;	
- 	width: 125px;
-  	height: 125px;
-  	border-top-color: none;
-  	border-radius: 0;
-    box-shadow: 0;
+.edit-post {
+	float: right;
+	padding-right: 20px;
 }
 
-table {
-	border-top-color: none;
-}
-
-.panel-body p {
-	display: block;
-}
-
-/*comment section*/
-#comment-list-panel {
-	/*height: 245px;*/
-	/*background-color: rgba(255, 255, 255, 0.7);*/
-	background-image: none;
-	padding-top: 10px;
-	font-size: 1em;
-}
 
