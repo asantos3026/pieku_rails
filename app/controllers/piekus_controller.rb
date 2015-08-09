@@ -25,17 +25,6 @@ class PiekusController < ApplicationController
     render :show
   end
 
-  # show form to edit one pieku
-  def edit
-    @pieku = Pieku.find(params[:id])
-    if current_user.piekus.include? @pieku
-      render :edit
-    else
-      # redirect_to '/profile'
-      redirect_to profile_path
-    end
-  end
-
   def update
     pieku = Pieku.find(params[:id])
     if current_user.piekus.include? pieku
