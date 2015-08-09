@@ -7,9 +7,11 @@
       <!-- pieku post -->
       <%= render 'piekus/post' %>
       <% else %>
+        <div class="col-md-12 text-center empty-profile">
         <h4>You haven't created any delicious Piekus yet!</h4>
+        <%= link_to "Add New Pieku", new_pieku_path %>
       <% end %>
     </div>
   <div class="col-md-3"></div>
 </div>
-<%= link_to "Add New Pieku", new_pieku_path %>
+</div>

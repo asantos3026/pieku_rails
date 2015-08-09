@@ -4,7 +4,7 @@ $(function() {
 
 	var piekuController = {
 
-		template: ,
+		template: $('#post-template').html(),
 
 		allPiekus: [],
 
@@ -17,7 +17,7 @@ $(function() {
 
 		getPieku: function (id) {
 
-			return _.findWhere(allPiekus, {_id: id} )
+			return find(allPiekus).attr('#pieku.id');
 		},
 
 		update: function(id, title, line1, line2, line3) {

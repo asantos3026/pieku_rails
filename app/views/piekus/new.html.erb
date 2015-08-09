@@ -1,9 +1,12 @@
-<h1>New Pieku</h1>
-<%= form_for @pieku do |f| %>
-  <%= f.text_field :title, placeholder: "Title" %><br>
-  <%= f.text_field :line_1, placeholder: "First line" %><br>
-  <%= f.text_field :line_2, placeholder: "Second line" %><br>
-  <%= f.text_field :line_3, placeholder: "Third line" %><br>
-  <hr>
-  <%= f.submit "Save Pieku" %>
-<% end %>
+<div class="col-md-12 text-center welcome-profile">
+	<div class="form-group">
+		<h1>New Pieku</h1>
+		<%= form_for @pieku do |f| %>
+		  <%= f.text_field :title, placeholder: "Title", class: "form-group" %><br>
+		  <%= f.text_field :line_1, placeholder: "First line", class: "form-group" %><br>
+		  <%= f.text_field :line_2, placeholder: "Second line", class: "form-group" %><br>
+		  <%= f.text_field :line_3, placeholder: "Third line", class: "form-group" %><br>
+		  <%= f.submit "Save Pieku", class: "form-group" %>
+		<% end %>
+	</div>
+</div>

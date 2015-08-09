@@ -1,8 +1,8 @@
 <% @piekus.each do |pieku| %>
-  <div class="pieku" data-pieku-id="<%= pieku.id %>">
+  <div class="pieku" data-pieku-id="<%= pieku.id %>" id= "post-template">
     <% if current_user == pieku.user %>
       <%= link_to "", pieku, method: :delete, class: "glyphicon glyphicon-remove delete-post" %>
-      <%= link_to "", "#", class: "glyphicon glyphicon-pencil edit-post", 'data-toggle' =>  "modal", 'data-target' => '#update-modal' %>
+      <%= link_to "", "#", class: "glyphicon glyphicon-pencil edit-post", 'data-toggle' =>  "modal", 'data-target' => '#updateModal' %>
     <% end %>
     <h2 id="post-title"><%= pieku.title %></h2>
     <p><%= pieku.user.full_name %></p>
