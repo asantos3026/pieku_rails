@@ -6,9 +6,9 @@
     <% end %>
     <h2 id="post-title"><%= pieku.title %></h2>
     <p><%= pieku.user.full_name %></p>
-    <p><%= pieku.line_1 %></p>
-    <p><%= pieku.line_2 %></p>
-    <p><%= pieku.line_3 %></p>
+    <p class="post-body"><%= pieku.line_1 %></p>
+    <p class="post-body"><%= pieku.line_2 %></p>
+    <p class="post-body"><%= pieku.line_3 %></p>
     <p><%= link_to "View Pieku", pieku_path(pieku) %></p>
   </div>
 <% end %>

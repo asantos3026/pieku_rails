@@ -1,13 +1,16 @@
-<h1><%= @pieku.title %></h1>
-<hr>
-<p><%= @pieku.line_1 %></p>
-<hr>
-<p><%= @pieku.line_2 %></p>
-<hr>
-<p><%= @pieku.line_3 %></p>
-<p><%= link_to "Show All", root_path %>
+<div class="col-md-12">
+	<div class="col-md-3"></div>
+		<div class="col-md-6 text-center pieku show">
+			<% if current_user && current_user.piekus.include?(@pieku) %>
+			  <p><%= link_to "", edit_pieku_path(@pieku), class: "glyphicon glyphicon-remove delete-post"  %></p>
+			  <p><%= link_to "", @pieku, method: :delete, class: "glyphicon glyphicon-pencil edit-post" %></p>
+			<% end %>
+			<h1 id="post-title"><%= @pieku.title %></h1>
+			<p class="post-body"><%= @pieku.line_1 %></p>
+			<p class="post-body"><%= @pieku.line_2 %></p>
+			<p class="post-body"><%= @pieku.line_3 %></p>
+			<p><%= link_to "Show All", root_path %>
+		</div>
+	<div class="col-md-3"></div>
+</div>
 
-<% if current_user && current_user.piekus.include?(@pieku) %>
-  <p><%= link_to "Edit Pieku", edit_pieku_path(@pieku) %></p>
-  <p><%= link_to "Delete", @pieku, method: :delete %></p>
-<% end %>
