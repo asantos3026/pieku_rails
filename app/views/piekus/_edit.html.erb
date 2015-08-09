@@ -9,7 +9,7 @@
 			<div class="modal-body">
 				<div class="form-group">
 					<%= form_for :pieku, :html => {:id => "update-pieku"} do |f| %>
-					  <%= hidden_field_tag class: 'update-id'  %>
+					  <%= hidden_field_tag 'id', '', class: 'update-id'  %>
 					  <%= f.text_field :title, placeholder: "Title", class: "update-title" %><br>
 					  <%= f.text_field :line_1, placeholder: "First line", class: "update-line1" %><br>
 					  <%= f.text_field :line_2, placeholder: "Second line", class: "update-line2" %><br>

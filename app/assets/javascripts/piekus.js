@@ -17,18 +17,13 @@ $(function() {
 			return _.findWhere(allPiekus, {id: id});
 		},
 
-		update: function(id, title, line1, line2, line3) {
+		update: function(id, formData) {
 
 			$.ajax({
 				type: 'PUT',
 				url: '/piekus/' + id,
-				data: {
-					title: title,
-					line1: line1,
-					line2: line2,
-					line3: line3
-				},
-				success: function (d) {
+				data: formData,
+				success: function (data) {
 					var $piekuHtml = $(piekuController.template(data));
 					$('#pieku-' + piekuId).replaceWith($piekuHtml);
 				},
@@ -39,16 +34,16 @@ $(function() {
 		},
 
 		addEventHandlers: function () {
-			$('#update-pieku').on('submit', function (e){
+			$('#update-pieku').on('submit', function (event){
 
 				event.preventDefault();
 		
 				var piekuId = $(this).find('.update-id').val();
-				var updateTitle = $(this).find('.update-title').val();
-				var updateLine1 = $(this).find('.update-line1').val();
-				var updateLine2 = $(this).find('.update-line2').val();
-				var updateLine3 = $(this).find('.update-line3').val();
-				piekuController.update(piekuId, updateTitle, updateLine1, updateLine2, updateLine3);
+				// var updateTitle = $(this).find('.update-title').val();
+				// var updateLine1 = $(this).find('.update-line1').val();
+				// var updateLine2 = $(this).find('.update-line2').val();
+				// var updateLine3 = $(this).find('.update-line3').val();
+				piekuController.update(piekuId, $(this).serialize());
 
 				// reset form
 				$(this)[0].reset();

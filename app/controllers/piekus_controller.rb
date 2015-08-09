@@ -23,9 +23,10 @@ class PiekusController < ApplicationController
     pieku = Pieku.find(params[:id])
     if current_user.piekus.include? pieku
       pieku.update_attributes(pieku_params)
-      redirect_to pieku_path(pieku)
+      # redirect_to pieku_path(pieku)
+      render json: pieku
     else
-      redirect_to profile_path
+      # redirect_to profile_path
     end
   end
 
