@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  root "piekus#index"
-  resources :piekus, except: [:index]
+  root "home#index"
+
+  resources :piekus
 
   get "/signup", to: "users#new"
   get "/profile", to: "users#show"

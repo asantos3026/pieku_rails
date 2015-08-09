@@ -4,13 +4,7 @@ class PiekusController < ApplicationController
   # show ALL piekus in db
   def index
     @piekus = Pieku.all
-    render :index
-  end
-
-  # form to create new pieku
-  def new
-    @pieku = Pieku.new
-    render :new
+    render json: @piekus
   end
 
   # creates new pieku in db

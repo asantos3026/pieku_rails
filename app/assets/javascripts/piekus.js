@@ -1,7 +1,5 @@
 $(function() {
 
-	// var somePieku = new Pieku({line1: "", ....})
-
 	var piekuController = {
 
 		template: $('#post-template').html(),
@@ -16,8 +14,7 @@ $(function() {
 		},
 
 		getPieku: function (id) {
-
-			return find(allPiekus).attr('#pieku.id');
+			return _.findWhere(allPiekus, {id: id});
 		},
 
 		update: function(id, title, line1, line2, line3) {
@@ -33,7 +30,7 @@ $(function() {
 				},
 				success: function (d) {
 					var $piekuHtml = $(piekuController.template(data));
-					$('#pieku-' + piekuId.replaceWith($piekuHtml));
+					$('#pieku-' + piekuId).replaceWith($piekuHtml);
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
 					console.log(textStatus);
@@ -42,7 +39,7 @@ $(function() {
 		},
 
 		addEventHandlers: function () {
-			$('update-pieku').on('submit', function (e){
+			$('#update-pieku').on('submit', function (e){
 
 				event.preventDefault();
 		
@@ -63,15 +60,19 @@ $(function() {
 		}
 	};
 
-	$('#updateModal').on('shown.bs.modal', function (e) {
+	piekuController.all();
+
+	$('#updateModal').on('shown.bs.modal', function (event) {
 		$('#update-title').focus();
 	});
 
-	$('#updateModal').on('show.bs.modal', function (e) {
+	$('#updateModal').on('show.bs.modal', function (event) {
 		// update button in html
 		var button = $(event.relatedTarget);
+		// pieku div
+		var piekuDiv = button.closest('.pieku');
 		// retrieving id of made pieku
-		var id = button.data('pieku-id');
+		var id = piekuDiv.data('pieku-id');
 		// Gets the pieku data
 		var pieku = piekuController.getPieku(id);
 		// reference to modal
@@ -79,9 +80,9 @@ $(function() {
 		// giving values of pieku prior to update.
 		modal.find('.update-id').val(id);
 		modal.find('.update-title').val(pieku.title);
-		modal.find('.update-line1').val(pieku.line1);
-		modal.find('.update-line2').val(pieku.line2);
-		modal.find('.update-line3').val(pieku.line3);
+		modal.find('.update-line1').val(pieku.line_1);
+		modal.find('.update-line2').val(pieku.line_2);
+		modal.find('.update-line3').val(pieku.line_3);
 	});
 
 });
